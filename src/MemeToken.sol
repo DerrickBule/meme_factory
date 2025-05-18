@@ -63,6 +63,7 @@ contract MemeToken is ERC20Upgradeable, OwnableUpgradeable {
      * @dev 提取合约中的 ETH，仅 owner 可调用
      */
     function withdraw() external onlyOwner {
-        payable(owner()).transfer(address(this).balance);
+        (bool success,) = payable(owner()).call{value: address(this).balance}("");
+        require(success, "Transfer failed");
     }
 } 
