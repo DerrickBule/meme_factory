@@ -12,3 +12,8 @@ docs/
 
 # Dotenv file
 .env
+.idea
+# IDEA
+.idea/
+# VSCode
+.vscode/
