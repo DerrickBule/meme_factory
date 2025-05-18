@@ -93,7 +93,7 @@ contract MemeFactory {
             mstore(add(clone, 0x14), targetBytes)
             mstore(add(clone, 0x28), 0x5af43d82803e903d91602b57fd5bf30000000000000000000000000000000000)
             proxy := create(0, clone, 0x37)
-        }fa
+        }
         require(proxy != address(0), "Proxy creation failed");
         // 初始化 MemeToken
         (bool success,) = proxy.call(data);

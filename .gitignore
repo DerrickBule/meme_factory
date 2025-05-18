@@ -17,3 +17,5 @@ docs/
 .idea/
 # VSCode
 .vscode/
+out/
+output_log.txt

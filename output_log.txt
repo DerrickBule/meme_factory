@@ -1,0 +1,610 @@
+No files changed, compilation skipped
+
+Ran 5 tests for test/MemeFactory.t.sol:MemeFactoryTest
+[PASS] testDeployInscription() (gas: 254560)
+Traces:
+  [254560] MemeFactoryTest::testDeployInscription()
+    ├─ [0] VM::deal(Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], 100000000000000000000 [1e20])
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b])
+    │   └─ ← [Return] 
+    ├─ [234791] MemeFactory::deployInscription("TEST", 1000, 10, 1000000000000000000 [1e18])
+    │   ├─ [9031] → new <unknown>@0x0401911641c4781D93c41f9aa8094B171368E6a9
+    │   │   └─ ← [Return] 45 bytes of code
+    │   ├─ [185826] 0x0401911641c4781D93c41f9aa8094B171368E6a9::initialize("TEST", 1000, 10, 1000000000000000000 [1e18])
+    │   │   ├─ [183127] MemeToken::initialize("TEST", 1000, 10, 1000000000000000000 [1e18]) [delegatecall]
+    │   │   │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00])
+    │   │   │   ├─ emit Initialized(version: 1)
+    │   │   │   └─ ← [Stop] 
+    │   │   └─ ← [Return] 
+    │   ├─ [2656] 0x0401911641c4781D93c41f9aa8094B171368E6a9::transferOwnership(Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b])
+    │   │   ├─ [2487] MemeToken::transferOwnership(Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]) [delegatecall]
+    │   │   │   ├─ emit OwnershipTransferred(previousOwner: MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00], newOwner: Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b])
+    │   │   │   └─ ← [Stop] 
+    │   │   └─ ← [Return] 
+    │   ├─ emit TokenDeployed(token: 0x0401911641c4781D93c41f9aa8094B171368E6a9, creator: Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], symbol: "TEST")
+    │   └─ ← [Return] 0x0401911641c4781D93c41f9aa8094B171368E6a9
+    ├─ [1505] 0x0401911641c4781D93c41f9aa8094B171368E6a9::symbol() [staticcall]
+    │   ├─ [1327] MemeToken::symbol() [delegatecall]
+    │   │   └─ ← [Return] "TEST"
+    │   └─ ← [Return] "TEST"
+    ├─ [0] VM::assertEq("TEST", "TEST") [staticcall]
+    │   └─ ← [Return] 
+    ├─ [503] 0x0401911641c4781D93c41f9aa8094B171368E6a9::totalSupplyCap() [staticcall]
+    │   ├─ [337] MemeToken::totalSupplyCap() [delegatecall]
+    │   │   └─ ← [Return] 1000
+    │   └─ ← [Return] 1000
+    ├─ [0] VM::assertEq(1000, 1000) [staticcall]
+    │   └─ ← [Return] 
+    ├─ [528] 0x0401911641c4781D93c41f9aa8094B171368E6a9::perMint() [staticcall]
+    │   ├─ [362] MemeToken::perMint() [delegatecall]
+    │   │   └─ ← [Return] 10
+    │   └─ ← [Return] 10
+    ├─ [0] VM::assertEq(10, 10) [staticcall]
+    │   └─ ← [Return] 
+    ├─ [571] 0x0401911641c4781D93c41f9aa8094B171368E6a9::mintPrice() [staticcall]
+    │   ├─ [405] MemeToken::mintPrice() [delegatecall]
+    │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   └─ ← [Return] 1000000000000000000 [1e18]
+    ├─ [0] VM::assertEq(1000000000000000000 [1e18], 1000000000000000000 [1e18]) [staticcall]
+    │   └─ ← [Return] 
+    ├─ [600] 0x0401911641c4781D93c41f9aa8094B171368E6a9::owner() [staticcall]
+    │   ├─ [434] MemeToken::owner() [delegatecall]
+    │   │   └─ ← [Return] Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]
+    │   └─ ← [Return] Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]
+    ├─ [0] VM::assertEq(Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]) [staticcall]
+    │   └─ ← [Return] 
+    └─ ← [Stop] 
+
+[PASS] testFeeDistribution() (gas: 330744)
+Traces:
+  [330744] MemeFactoryTest::testFeeDistribution()
+    ├─ [0] VM::deal(Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], 100000000000000000000 [1e20])
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b])
+    │   └─ ← [Return] 
+    ├─ [234791] MemeFactory::deployInscription("TEST", 1000, 10, 1000000000000000000 [1e18])
+    │   ├─ [9031] → new <unknown>@0x0401911641c4781D93c41f9aa8094B171368E6a9
+    │   │   └─ ← [Return] 45 bytes of code
+    │   ├─ [185826] 0x0401911641c4781D93c41f9aa8094B171368E6a9::initialize("TEST", 1000, 10, 1000000000000000000 [1e18])
+    │   │   ├─ [183127] MemeToken::initialize("TEST", 1000, 10, 1000000000000000000 [1e18]) [delegatecall]
+    │   │   │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00])
+    │   │   │   ├─ emit Initialized(version: 1)
+    │   │   │   └─ ← [Stop] 
+    │   │   └─ ← [Return] 
+    │   ├─ [2656] 0x0401911641c4781D93c41f9aa8094B171368E6a9::transferOwnership(Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b])
+    │   │   ├─ [2487] MemeToken::transferOwnership(Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]) [delegatecall]
+    │   │   │   ├─ emit OwnershipTransferred(previousOwner: MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00], newOwner: Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b])
+    │   │   │   └─ ← [Stop] 
+    │   │   └─ ← [Return] 
+    │   ├─ emit TokenDeployed(token: 0x0401911641c4781D93c41f9aa8094B171368E6a9, creator: Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], symbol: "TEST")
+    │   └─ ← [Return] 0x0401911641c4781D93c41f9aa8094B171368E6a9
+    ├─ [0] VM::deal(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], 100000000000000000000 [1e20])
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   └─ ← [Return] 
+    ├─ [68294] MemeFactory::mintInscription{value: 1000000000000000000}(0x0401911641c4781D93c41f9aa8094B171368E6a9)
+    │   ├─ [568] 0x0401911641c4781D93c41f9aa8094B171368E6a9::factory() [staticcall]
+    │   │   ├─ [402] MemeToken::factory() [delegatecall]
+    │   │   │   └─ ← [Return] MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00]
+    │   │   └─ ← [Return] MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00]
+    │   ├─ [571] 0x0401911641c4781D93c41f9aa8094B171368E6a9::mintPrice() [staticcall]
+    │   │   ├─ [405] MemeToken::mintPrice() [delegatecall]
+    │   │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   ├─ [33] Receiver::receive{value: 10000000000000000}()
+    │   │   └─ ← [Stop] 
+    │   ├─ [600] 0x0401911641c4781D93c41f9aa8094B171368E6a9::owner() [staticcall]
+    │   │   ├─ [434] MemeToken::owner() [delegatecall]
+    │   │   │   └─ ← [Return] Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]
+    │   │   └─ ← [Return] Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]
+    │   ├─ [33] Receiver::receive{value: 990000000000000000}()
+    │   │   └─ ← [Stop] 
+    │   ├─ [528] 0x0401911641c4781D93c41f9aa8094B171368E6a9::perMint() [staticcall]
+    │   │   ├─ [362] MemeToken::perMint() [delegatecall]
+    │   │   │   └─ ← [Return] 10
+    │   │   └─ ← [Return] 10
+    │   ├─ [47689] 0x0401911641c4781D93c41f9aa8094B171368E6a9::mint(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], 10)
+    │   │   ├─ [47514] MemeToken::mint(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], 10) [delegatecall]
+    │   │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], value: 10)
+    │   │   │   └─ ← [Stop] 
+    │   │   └─ ← [Return] 
+    │   ├─ emit TokenMinted(token: 0x0401911641c4781D93c41f9aa8094B171368E6a9, minter: Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], amount: 10)
+    │   └─ ← [Stop] 
+    ├─ [0] VM::assertEq(10000000000000000 [1e16], 10000000000000000 [1e16]) [staticcall]
+    │   └─ ← [Return] 
+    ├─ [0] VM::assertEq(990000000000000000 [9.9e17], 990000000000000000 [9.9e17]) [staticcall]
+    │   └─ ← [Return] 
+    └─ ← [Stop] 
+
+[PASS] testInsufficientPayment() (gas: 258934)
+Traces:
+  [258934] MemeFactoryTest::testInsufficientPayment()
+    ├─ [0] VM::deal(Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], 100000000000000000000 [1e20])
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b])
+    │   └─ ← [Return] 
+    ├─ [234791] MemeFactory::deployInscription("TEST", 1000, 10, 1000000000000000000 [1e18])
+    │   ├─ [9031] → new <unknown>@0x0401911641c4781D93c41f9aa8094B171368E6a9
+    │   │   └─ ← [Return] 45 bytes of code
+    │   ├─ [185826] 0x0401911641c4781D93c41f9aa8094B171368E6a9::initialize("TEST", 1000, 10, 1000000000000000000 [1e18])
+    │   │   ├─ [183127] MemeToken::initialize("TEST", 1000, 10, 1000000000000000000 [1e18]) [delegatecall]
+    │   │   │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00])
+    │   │   │   ├─ emit Initialized(version: 1)
+    │   │   │   └─ ← [Stop] 
+    │   │   └─ ← [Return] 
+    │   ├─ [2656] 0x0401911641c4781D93c41f9aa8094B171368E6a9::transferOwnership(Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b])
+    │   │   ├─ [2487] MemeToken::transferOwnership(Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]) [delegatecall]
+    │   │   │   ├─ emit OwnershipTransferred(previousOwner: MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00], newOwner: Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b])
+    │   │   │   └─ ← [Stop] 
+    │   │   └─ ← [Return] 
+    │   ├─ emit TokenDeployed(token: 0x0401911641c4781D93c41f9aa8094B171368E6a9, creator: Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], symbol: "TEST")
+    │   └─ ← [Return] 0x0401911641c4781D93c41f9aa8094B171368E6a9
+    ├─ [0] VM::deal(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], 100000000000000000000 [1e20])
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   └─ ← [Return] 
+    ├─ [0] VM::expectRevert(custom error 0xf28dceb3:  Insufficient payment)
+    │   └─ ← [Return] 
+    ├─ [2452] MemeFactory::mintInscription{value: 500000000000000000}(0x0401911641c4781D93c41f9aa8094B171368E6a9)
+    │   ├─ [568] 0x0401911641c4781D93c41f9aa8094B171368E6a9::factory() [staticcall]
+    │   │   ├─ [402] MemeToken::factory() [delegatecall]
+    │   │   │   └─ ← [Return] MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00]
+    │   │   └─ ← [Return] MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00]
+    │   ├─ [571] 0x0401911641c4781D93c41f9aa8094B171368E6a9::mintPrice() [staticcall]
+    │   │   ├─ [405] MemeToken::mintPrice() [delegatecall]
+    │   │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   └─ ← [Revert] revert: Insufficient payment
+    └─ ← [Stop] 
+
+[PASS] testMintExceedsTotalSupply() (gas: 645798)
+Traces:
+  [645798] MemeFactoryTest::testMintExceedsTotalSupply()
+    ├─ [0] VM::deal(Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], 100000000000000000000 [1e20])
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b])
+    │   └─ ← [Return] 
+    ├─ [234791] MemeFactory::deployInscription("TEST", 100, 10, 1000000000000000000 [1e18])
+    │   ├─ [9031] → new <unknown>@0x0401911641c4781D93c41f9aa8094B171368E6a9
+    │   │   └─ ← [Return] 45 bytes of code
+    │   ├─ [185826] 0x0401911641c4781D93c41f9aa8094B171368E6a9::initialize("TEST", 100, 10, 1000000000000000000 [1e18])
+    │   │   ├─ [183127] MemeToken::initialize("TEST", 100, 10, 1000000000000000000 [1e18]) [delegatecall]
+    │   │   │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00])
+    │   │   │   ├─ emit Initialized(version: 1)
+    │   │   │   └─ ← [Stop] 
+    │   │   └─ ← [Return] 
+    │   ├─ [2656] 0x0401911641c4781D93c41f9aa8094B171368E6a9::transferOwnership(Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b])
+    │   │   ├─ [2487] MemeToken::transferOwnership(Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]) [delegatecall]
+    │   │   │   ├─ emit OwnershipTransferred(previousOwner: MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00], newOwner: Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b])
+    │   │   │   └─ ← [Stop] 
+    │   │   └─ ← [Return] 
+    │   ├─ emit TokenDeployed(token: 0x0401911641c4781D93c41f9aa8094B171368E6a9, creator: Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], symbol: "TEST")
+    │   └─ ← [Return] 0x0401911641c4781D93c41f9aa8094B171368E6a9
+    ├─ [0] VM::deal(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], 100000000000000000000 [1e20])
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   └─ ← [Return] 
+    ├─ [70794] MemeFactory::mintInscription{value: 1000000000000000000}(0x0401911641c4781D93c41f9aa8094B171368E6a9)
+    │   ├─ [568] 0x0401911641c4781D93c41f9aa8094B171368E6a9::factory() [staticcall]
+    │   │   ├─ [402] MemeToken::factory() [delegatecall]
+    │   │   │   └─ ← [Return] MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00]
+    │   │   └─ ← [Return] MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00]
+    │   ├─ [571] 0x0401911641c4781D93c41f9aa8094B171368E6a9::mintPrice() [staticcall]
+    │   │   ├─ [405] MemeToken::mintPrice() [delegatecall]
+    │   │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   ├─ [33] Receiver::receive{value: 10000000000000000}()
+    │   │   └─ ← [Stop] 
+    │   ├─ [600] 0x0401911641c4781D93c41f9aa8094B171368E6a9::owner() [staticcall]
+    │   │   ├─ [434] MemeToken::owner() [delegatecall]
+    │   │   │   └─ ← [Return] Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]
+    │   │   └─ ← [Return] Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]
+    │   ├─ [33] Receiver::receive{value: 990000000000000000}()
+    │   │   └─ ← [Stop] 
+    │   ├─ [528] 0x0401911641c4781D93c41f9aa8094B171368E6a9::perMint() [staticcall]
+    │   │   ├─ [362] MemeToken::perMint() [delegatecall]
+    │   │   │   └─ ← [Return] 10
+    │   │   └─ ← [Return] 10
+    │   ├─ [47689] 0x0401911641c4781D93c41f9aa8094B171368E6a9::mint(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], 10)
+    │   │   ├─ [47514] MemeToken::mint(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], 10) [delegatecall]
+    │   │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], value: 10)
+    │   │   │   └─ ← [Stop] 
+    │   │   └─ ← [Return] 
+    │   ├─ emit TokenMinted(token: 0x0401911641c4781D93c41f9aa8094B171368E6a9, minter: Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], amount: 10)
+    │   └─ ← [Stop] 
+    ├─ [0] VM::prank(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   └─ ← [Return] 
+    ├─ [24494] MemeFactory::mintInscription{value: 1000000000000000000}(0x0401911641c4781D93c41f9aa8094B171368E6a9)
+    │   ├─ [568] 0x0401911641c4781D93c41f9aa8094B171368E6a9::factory() [staticcall]
+    │   │   ├─ [402] MemeToken::factory() [delegatecall]
+    │   │   │   └─ ← [Return] MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00]
+    │   │   └─ ← [Return] MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00]
+    │   ├─ [571] 0x0401911641c4781D93c41f9aa8094B171368E6a9::mintPrice() [staticcall]
+    │   │   ├─ [405] MemeToken::mintPrice() [delegatecall]
+    │   │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   ├─ [33] Receiver::receive{value: 10000000000000000}()
+    │   │   └─ ← [Stop] 
+    │   ├─ [600] 0x0401911641c4781D93c41f9aa8094B171368E6a9::owner() [staticcall]
+    │   │   ├─ [434] MemeToken::owner() [delegatecall]
+    │   │   │   └─ ← [Return] Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]
+    │   │   └─ ← [Return] Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]
+    │   ├─ [33] Receiver::receive{value: 990000000000000000}()
+    │   │   └─ ← [Stop] 
+    │   ├─ [528] 0x0401911641c4781D93c41f9aa8094B171368E6a9::perMint() [staticcall]
+    │   │   ├─ [362] MemeToken::perMint() [delegatecall]
+    │   │   │   └─ ← [Return] 10
+    │   │   └─ ← [Return] 10
+    │   ├─ [3889] 0x0401911641c4781D93c41f9aa8094B171368E6a9::mint(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], 10)
+    │   │   ├─ [3714] MemeToken::mint(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], 10) [delegatecall]
+    │   │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], value: 10)
+    │   │   │   └─ ← [Stop] 
+    │   │   └─ ← [Return] 
+    │   ├─ emit TokenMinted(token: 0x0401911641c4781D93c41f9aa8094B171368E6a9, minter: Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], amount: 10)
+    │   └─ ← [Stop] 
+    ├─ [0] VM::prank(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   └─ ← [Return] 
+    ├─ [24494] MemeFactory::mintInscription{value: 1000000000000000000}(0x0401911641c4781D93c41f9aa8094B171368E6a9)
+    │   ├─ [568] 0x0401911641c4781D93c41f9aa8094B171368E6a9::factory() [staticcall]
+    │   │   ├─ [402] MemeToken::factory() [delegatecall]
+    │   │   │   └─ ← [Return] MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00]
+    │   │   └─ ← [Return] MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00]
+    │   ├─ [571] 0x0401911641c4781D93c41f9aa8094B171368E6a9::mintPrice() [staticcall]
+    │   │   ├─ [405] MemeToken::mintPrice() [delegatecall]
+    │   │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   ├─ [33] Receiver::receive{value: 10000000000000000}()
+    │   │   └─ ← [Stop] 
+    │   ├─ [600] 0x0401911641c4781D93c41f9aa8094B171368E6a9::owner() [staticcall]
+    │   │   ├─ [434] MemeToken::owner() [delegatecall]
+    │   │   │   └─ ← [Return] Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]
+    │   │   └─ ← [Return] Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]
+    │   ├─ [33] Receiver::receive{value: 990000000000000000}()
+    │   │   └─ ← [Stop] 
+    │   ├─ [528] 0x0401911641c4781D93c41f9aa8094B171368E6a9::perMint() [staticcall]
+    │   │   ├─ [362] MemeToken::perMint() [delegatecall]
+    │   │   │   └─ ← [Return] 10
+    │   │   └─ ← [Return] 10
+    │   ├─ [3889] 0x0401911641c4781D93c41f9aa8094B171368E6a9::mint(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], 10)
+    │   │   ├─ [3714] MemeToken::mint(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], 10) [delegatecall]
+    │   │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], value: 10)
+    │   │   │   └─ ← [Stop] 
+    │   │   └─ ← [Return] 
+    │   ├─ emit TokenMinted(token: 0x0401911641c4781D93c41f9aa8094B171368E6a9, minter: Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], amount: 10)
+    │   └─ ← [Stop] 
+    ├─ [0] VM::prank(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   └─ ← [Return] 
+    ├─ [24494] MemeFactory::mintInscription{value: 1000000000000000000}(0x0401911641c4781D93c41f9aa8094B171368E6a9)
+    │   ├─ [568] 0x0401911641c4781D93c41f9aa8094B171368E6a9::factory() [staticcall]
+    │   │   ├─ [402] MemeToken::factory() [delegatecall]
+    │   │   │   └─ ← [Return] MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00]
+    │   │   └─ ← [Return] MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00]
+    │   ├─ [571] 0x0401911641c4781D93c41f9aa8094B171368E6a9::mintPrice() [staticcall]
+    │   │   ├─ [405] MemeToken::mintPrice() [delegatecall]
+    │   │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   ├─ [33] Receiver::receive{value: 10000000000000000}()
+    │   │   └─ ← [Stop] 
+    │   ├─ [600] 0x0401911641c4781D93c41f9aa8094B171368E6a9::owner() [staticcall]
+    │   │   ├─ [434] MemeToken::owner() [delegatecall]
+    │   │   │   └─ ← [Return] Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]
+    │   │   └─ ← [Return] Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]
+    │   ├─ [33] Receiver::receive{value: 990000000000000000}()
+    │   │   └─ ← [Stop] 
+    │   ├─ [528] 0x0401911641c4781D93c41f9aa8094B171368E6a9::perMint() [staticcall]
+    │   │   ├─ [362] MemeToken::perMint() [delegatecall]
+    │   │   │   └─ ← [Return] 10
+    │   │   └─ ← [Return] 10
+    │   ├─ [3889] 0x0401911641c4781D93c41f9aa8094B171368E6a9::mint(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], 10)
+    │   │   ├─ [3714] MemeToken::mint(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], 10) [delegatecall]
+    │   │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], value: 10)
+    │   │   │   └─ ← [Stop] 
+    │   │   └─ ← [Return] 
+    │   ├─ emit TokenMinted(token: 0x0401911641c4781D93c41f9aa8094B171368E6a9, minter: Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], amount: 10)
+    │   └─ ← [Stop] 
+    ├─ [0] VM::prank(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   └─ ← [Return] 
+    ├─ [24494] MemeFactory::mintInscription{value: 1000000000000000000}(0x0401911641c4781D93c41f9aa8094B171368E6a9)
+    │   ├─ [568] 0x0401911641c4781D93c41f9aa8094B171368E6a9::factory() [staticcall]
+    │   │   ├─ [402] MemeToken::factory() [delegatecall]
+    │   │   │   └─ ← [Return] MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00]
+    │   │   └─ ← [Return] MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00]
+    │   ├─ [571] 0x0401911641c4781D93c41f9aa8094B171368E6a9::mintPrice() [staticcall]
+    │   │   ├─ [405] MemeToken::mintPrice() [delegatecall]
+    │   │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   ├─ [33] Receiver::receive{value: 10000000000000000}()
+    │   │   └─ ← [Stop] 
+    │   ├─ [600] 0x0401911641c4781D93c41f9aa8094B171368E6a9::owner() [staticcall]
+    │   │   ├─ [434] MemeToken::owner() [delegatecall]
+    │   │   │   └─ ← [Return] Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]
+    │   │   └─ ← [Return] Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]
+    │   ├─ [33] Receiver::receive{value: 990000000000000000}()
+    │   │   └─ ← [Stop] 
+    │   ├─ [528] 0x0401911641c4781D93c41f9aa8094B171368E6a9::perMint() [staticcall]
+    │   │   ├─ [362] MemeToken::perMint() [delegatecall]
+    │   │   │   └─ ← [Return] 10
+    │   │   └─ ← [Return] 10
+    │   ├─ [3889] 0x0401911641c4781D93c41f9aa8094B171368E6a9::mint(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], 10)
+    │   │   ├─ [3714] MemeToken::mint(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], 10) [delegatecall]
+    │   │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], value: 10)
+    │   │   │   └─ ← [Stop] 
+    │   │   └─ ← [Return] 
+    │   ├─ emit TokenMinted(token: 0x0401911641c4781D93c41f9aa8094B171368E6a9, minter: Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], amount: 10)
+    │   └─ ← [Stop] 
+    ├─ [0] VM::prank(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   └─ ← [Return] 
+    ├─ [24494] MemeFactory::mintInscription{value: 1000000000000000000}(0x0401911641c4781D93c41f9aa8094B171368E6a9)
+    │   ├─ [568] 0x0401911641c4781D93c41f9aa8094B171368E6a9::factory() [staticcall]
+    │   │   ├─ [402] MemeToken::factory() [delegatecall]
+    │   │   │   └─ ← [Return] MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00]
+    │   │   └─ ← [Return] MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00]
+    │   ├─ [571] 0x0401911641c4781D93c41f9aa8094B171368E6a9::mintPrice() [staticcall]
+    │   │   ├─ [405] MemeToken::mintPrice() [delegatecall]
+    │   │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   ├─ [33] Receiver::receive{value: 10000000000000000}()
+    │   │   └─ ← [Stop] 
+    │   ├─ [600] 0x0401911641c4781D93c41f9aa8094B171368E6a9::owner() [staticcall]
+    │   │   ├─ [434] MemeToken::owner() [delegatecall]
+    │   │   │   └─ ← [Return] Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]
+    │   │   └─ ← [Return] Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]
+    │   ├─ [33] Receiver::receive{value: 990000000000000000}()
+    │   │   └─ ← [Stop] 
+    │   ├─ [528] 0x0401911641c4781D93c41f9aa8094B171368E6a9::perMint() [staticcall]
+    │   │   ├─ [362] MemeToken::perMint() [delegatecall]
+    │   │   │   └─ ← [Return] 10
+    │   │   └─ ← [Return] 10
+    │   ├─ [3889] 0x0401911641c4781D93c41f9aa8094B171368E6a9::mint(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], 10)
+    │   │   ├─ [3714] MemeToken::mint(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], 10) [delegatecall]
+    │   │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], value: 10)
+    │   │   │   └─ ← [Stop] 
+    │   │   └─ ← [Return] 
+    │   ├─ emit TokenMinted(token: 0x0401911641c4781D93c41f9aa8094B171368E6a9, minter: Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], amount: 10)
+    │   └─ ← [Stop] 
+    ├─ [0] VM::prank(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   └─ ← [Return] 
+    ├─ [24494] MemeFactory::mintInscription{value: 1000000000000000000}(0x0401911641c4781D93c41f9aa8094B171368E6a9)
+    │   ├─ [568] 0x0401911641c4781D93c41f9aa8094B171368E6a9::factory() [staticcall]
+    │   │   ├─ [402] MemeToken::factory() [delegatecall]
+    │   │   │   └─ ← [Return] MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00]
+    │   │   └─ ← [Return] MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00]
+    │   ├─ [571] 0x0401911641c4781D93c41f9aa8094B171368E6a9::mintPrice() [staticcall]
+    │   │   ├─ [405] MemeToken::mintPrice() [delegatecall]
+    │   │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   ├─ [33] Receiver::receive{value: 10000000000000000}()
+    │   │   └─ ← [Stop] 
+    │   ├─ [600] 0x0401911641c4781D93c41f9aa8094B171368E6a9::owner() [staticcall]
+    │   │   ├─ [434] MemeToken::owner() [delegatecall]
+    │   │   │   └─ ← [Return] Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]
+    │   │   └─ ← [Return] Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]
+    │   ├─ [33] Receiver::receive{value: 990000000000000000}()
+    │   │   └─ ← [Stop] 
+    │   ├─ [528] 0x0401911641c4781D93c41f9aa8094B171368E6a9::perMint() [staticcall]
+    │   │   ├─ [362] MemeToken::perMint() [delegatecall]
+    │   │   │   └─ ← [Return] 10
+    │   │   └─ ← [Return] 10
+    │   ├─ [3889] 0x0401911641c4781D93c41f9aa8094B171368E6a9::mint(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], 10)
+    │   │   ├─ [3714] MemeToken::mint(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], 10) [delegatecall]
+    │   │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], value: 10)
+    │   │   │   └─ ← [Stop] 
+    │   │   └─ ← [Return] 
+    │   ├─ emit TokenMinted(token: 0x0401911641c4781D93c41f9aa8094B171368E6a9, minter: Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], amount: 10)
+    │   └─ ← [Stop] 
+    ├─ [0] VM::prank(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   └─ ← [Return] 
+    ├─ [24494] MemeFactory::mintInscription{value: 1000000000000000000}(0x0401911641c4781D93c41f9aa8094B171368E6a9)
+    │   ├─ [568] 0x0401911641c4781D93c41f9aa8094B171368E6a9::factory() [staticcall]
+    │   │   ├─ [402] MemeToken::factory() [delegatecall]
+    │   │   │   └─ ← [Return] MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00]
+    │   │   └─ ← [Return] MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00]
+    │   ├─ [571] 0x0401911641c4781D93c41f9aa8094B171368E6a9::mintPrice() [staticcall]
+    │   │   ├─ [405] MemeToken::mintPrice() [delegatecall]
+    │   │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   ├─ [33] Receiver::receive{value: 10000000000000000}()
+    │   │   └─ ← [Stop] 
+    │   ├─ [600] 0x0401911641c4781D93c41f9aa8094B171368E6a9::owner() [staticcall]
+    │   │   ├─ [434] MemeToken::owner() [delegatecall]
+    │   │   │   └─ ← [Return] Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]
+    │   │   └─ ← [Return] Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]
+    │   ├─ [33] Receiver::receive{value: 990000000000000000}()
+    │   │   └─ ← [Stop] 
+    │   ├─ [528] 0x0401911641c4781D93c41f9aa8094B171368E6a9::perMint() [staticcall]
+    │   │   ├─ [362] MemeToken::perMint() [delegatecall]
+    │   │   │   └─ ← [Return] 10
+    │   │   └─ ← [Return] 10
+    │   ├─ [3889] 0x0401911641c4781D93c41f9aa8094B171368E6a9::mint(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], 10)
+    │   │   ├─ [3714] MemeToken::mint(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], 10) [delegatecall]
+    │   │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], value: 10)
+    │   │   │   └─ ← [Stop] 
+    │   │   └─ ← [Return] 
+    │   ├─ emit TokenMinted(token: 0x0401911641c4781D93c41f9aa8094B171368E6a9, minter: Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], amount: 10)
+    │   └─ ← [Stop] 
+    ├─ [0] VM::prank(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   └─ ← [Return] 
+    ├─ [24494] MemeFactory::mintInscription{value: 1000000000000000000}(0x0401911641c4781D93c41f9aa8094B171368E6a9)
+    │   ├─ [568] 0x0401911641c4781D93c41f9aa8094B171368E6a9::factory() [staticcall]
+    │   │   ├─ [402] MemeToken::factory() [delegatecall]
+    │   │   │   └─ ← [Return] MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00]
+    │   │   └─ ← [Return] MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00]
+    │   ├─ [571] 0x0401911641c4781D93c41f9aa8094B171368E6a9::mintPrice() [staticcall]
+    │   │   ├─ [405] MemeToken::mintPrice() [delegatecall]
+    │   │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   ├─ [33] Receiver::receive{value: 10000000000000000}()
+    │   │   └─ ← [Stop] 
+    │   ├─ [600] 0x0401911641c4781D93c41f9aa8094B171368E6a9::owner() [staticcall]
+    │   │   ├─ [434] MemeToken::owner() [delegatecall]
+    │   │   │   └─ ← [Return] Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]
+    │   │   └─ ← [Return] Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]
+    │   ├─ [33] Receiver::receive{value: 990000000000000000}()
+    │   │   └─ ← [Stop] 
+    │   ├─ [528] 0x0401911641c4781D93c41f9aa8094B171368E6a9::perMint() [staticcall]
+    │   │   ├─ [362] MemeToken::perMint() [delegatecall]
+    │   │   │   └─ ← [Return] 10
+    │   │   └─ ← [Return] 10
+    │   ├─ [3889] 0x0401911641c4781D93c41f9aa8094B171368E6a9::mint(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], 10)
+    │   │   ├─ [3714] MemeToken::mint(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], 10) [delegatecall]
+    │   │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], value: 10)
+    │   │   │   └─ ← [Stop] 
+    │   │   └─ ← [Return] 
+    │   ├─ emit TokenMinted(token: 0x0401911641c4781D93c41f9aa8094B171368E6a9, minter: Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], amount: 10)
+    │   └─ ← [Stop] 
+    ├─ [0] VM::prank(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   └─ ← [Return] 
+    ├─ [24494] MemeFactory::mintInscription{value: 1000000000000000000}(0x0401911641c4781D93c41f9aa8094B171368E6a9)
+    │   ├─ [568] 0x0401911641c4781D93c41f9aa8094B171368E6a9::factory() [staticcall]
+    │   │   ├─ [402] MemeToken::factory() [delegatecall]
+    │   │   │   └─ ← [Return] MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00]
+    │   │   └─ ← [Return] MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00]
+    │   ├─ [571] 0x0401911641c4781D93c41f9aa8094B171368E6a9::mintPrice() [staticcall]
+    │   │   ├─ [405] MemeToken::mintPrice() [delegatecall]
+    │   │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   ├─ [33] Receiver::receive{value: 10000000000000000}()
+    │   │   └─ ← [Stop] 
+    │   ├─ [600] 0x0401911641c4781D93c41f9aa8094B171368E6a9::owner() [staticcall]
+    │   │   ├─ [434] MemeToken::owner() [delegatecall]
+    │   │   │   └─ ← [Return] Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]
+    │   │   └─ ← [Return] Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]
+    │   ├─ [33] Receiver::receive{value: 990000000000000000}()
+    │   │   └─ ← [Stop] 
+    │   ├─ [528] 0x0401911641c4781D93c41f9aa8094B171368E6a9::perMint() [staticcall]
+    │   │   ├─ [362] MemeToken::perMint() [delegatecall]
+    │   │   │   └─ ← [Return] 10
+    │   │   └─ ← [Return] 10
+    │   ├─ [3889] 0x0401911641c4781D93c41f9aa8094B171368E6a9::mint(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], 10)
+    │   │   ├─ [3714] MemeToken::mint(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], 10) [delegatecall]
+    │   │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], value: 10)
+    │   │   │   └─ ← [Stop] 
+    │   │   └─ ← [Return] 
+    │   ├─ emit TokenMinted(token: 0x0401911641c4781D93c41f9aa8094B171368E6a9, minter: Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], amount: 10)
+    │   └─ ← [Stop] 
+    ├─ [0] VM::prank(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   └─ ← [Return] 
+    ├─ [0] VM::expectRevert(custom error 0xf28dceb3:  Exceeds total supply)
+    │   └─ ← [Return] 
+    ├─ [20081] MemeFactory::mintInscription{value: 1000000000000000000}(0x0401911641c4781D93c41f9aa8094B171368E6a9)
+    │   ├─ [568] 0x0401911641c4781D93c41f9aa8094B171368E6a9::factory() [staticcall]
+    │   │   ├─ [402] MemeToken::factory() [delegatecall]
+    │   │   │   └─ ← [Return] MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00]
+    │   │   └─ ← [Return] MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00]
+    │   ├─ [571] 0x0401911641c4781D93c41f9aa8094B171368E6a9::mintPrice() [staticcall]
+    │   │   ├─ [405] MemeToken::mintPrice() [delegatecall]
+    │   │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   ├─ [33] Receiver::receive{value: 10000000000000000}()
+    │   │   └─ ← [Stop] 
+    │   ├─ [600] 0x0401911641c4781D93c41f9aa8094B171368E6a9::owner() [staticcall]
+    │   │   ├─ [434] MemeToken::owner() [delegatecall]
+    │   │   │   └─ ← [Return] Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]
+    │   │   └─ ← [Return] Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]
+    │   ├─ [33] Receiver::receive{value: 990000000000000000}()
+    │   │   └─ ← [Stop] 
+    │   ├─ [528] 0x0401911641c4781D93c41f9aa8094B171368E6a9::perMint() [staticcall]
+    │   │   ├─ [362] MemeToken::perMint() [delegatecall]
+    │   │   │   └─ ← [Return] 10
+    │   │   └─ ← [Return] 10
+    │   ├─ [1310] 0x0401911641c4781D93c41f9aa8094B171368E6a9::mint(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], 10)
+    │   │   ├─ [1121] MemeToken::mint(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], 10) [delegatecall]
+    │   │   │   └─ ← [Revert] revert: Exceeds total supply
+    │   │   └─ ← [Revert] revert: Exceeds total supply
+    │   └─ ← [Revert] revert: Exceeds total supply
+    └─ ← [Stop] 
+
+[PASS] testMintInscription() (gas: 329370)
+Traces:
+  [329370] MemeFactoryTest::testMintInscription()
+    ├─ [0] VM::deal(Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], 100000000000000000000 [1e20])
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b])
+    │   └─ ← [Return] 
+    ├─ [234791] MemeFactory::deployInscription("TEST", 1000, 10, 1000000000000000000 [1e18])
+    │   ├─ [9031] → new <unknown>@0x0401911641c4781D93c41f9aa8094B171368E6a9
+    │   │   └─ ← [Return] 45 bytes of code
+    │   ├─ [185826] 0x0401911641c4781D93c41f9aa8094B171368E6a9::initialize("TEST", 1000, 10, 1000000000000000000 [1e18])
+    │   │   ├─ [183127] MemeToken::initialize("TEST", 1000, 10, 1000000000000000000 [1e18]) [delegatecall]
+    │   │   │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00])
+    │   │   │   ├─ emit Initialized(version: 1)
+    │   │   │   └─ ← [Stop] 
+    │   │   └─ ← [Return] 
+    │   ├─ [2656] 0x0401911641c4781D93c41f9aa8094B171368E6a9::transferOwnership(Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b])
+    │   │   ├─ [2487] MemeToken::transferOwnership(Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]) [delegatecall]
+    │   │   │   ├─ emit OwnershipTransferred(previousOwner: MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00], newOwner: Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b])
+    │   │   │   └─ ← [Stop] 
+    │   │   └─ ← [Return] 
+    │   ├─ emit TokenDeployed(token: 0x0401911641c4781D93c41f9aa8094B171368E6a9, creator: Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], symbol: "TEST")
+    │   └─ ← [Return] 0x0401911641c4781D93c41f9aa8094B171368E6a9
+    ├─ [0] VM::deal(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], 100000000000000000000 [1e20])
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   └─ ← [Return] 
+    ├─ [70794] MemeFactory::mintInscription{value: 1000000000000000000}(0x0401911641c4781D93c41f9aa8094B171368E6a9)
+    │   ├─ [568] 0x0401911641c4781D93c41f9aa8094B171368E6a9::factory() [staticcall]
+    │   │   ├─ [402] MemeToken::factory() [delegatecall]
+    │   │   │   └─ ← [Return] MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00]
+    │   │   └─ ← [Return] MemeFactory: [0x104fBc016F4bb334D775a19E8A6510109AC63E00]
+    │   ├─ [571] 0x0401911641c4781D93c41f9aa8094B171368E6a9::mintPrice() [staticcall]
+    │   │   ├─ [405] MemeToken::mintPrice() [delegatecall]
+    │   │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   ├─ [33] Receiver::receive{value: 10000000000000000}()
+    │   │   └─ ← [Stop] 
+    │   ├─ [600] 0x0401911641c4781D93c41f9aa8094B171368E6a9::owner() [staticcall]
+    │   │   ├─ [434] MemeToken::owner() [delegatecall]
+    │   │   │   └─ ← [Return] Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]
+    │   │   └─ ← [Return] Receiver: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]
+    │   ├─ [33] Receiver::receive{value: 990000000000000000}()
+    │   │   └─ ← [Stop] 
+    │   ├─ [528] 0x0401911641c4781D93c41f9aa8094B171368E6a9::perMint() [staticcall]
+    │   │   ├─ [362] MemeToken::perMint() [delegatecall]
+    │   │   │   └─ ← [Return] 10
+    │   │   └─ ← [Return] 10
+    │   ├─ [47689] 0x0401911641c4781D93c41f9aa8094B171368E6a9::mint(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], 10)
+    │   │   ├─ [47514] MemeToken::mint(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], 10) [delegatecall]
+    │   │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], value: 10)
+    │   │   │   └─ ← [Stop] 
+    │   │   └─ ← [Return] 
+    │   ├─ emit TokenMinted(token: 0x0401911641c4781D93c41f9aa8094B171368E6a9, minter: Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], amount: 10)
+    │   └─ ← [Stop] 
+    ├─ [761] 0x0401911641c4781D93c41f9aa8094B171368E6a9::balanceOf(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a]) [staticcall]
+    │   ├─ [589] MemeToken::balanceOf(Receiver: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a]) [delegatecall]
+    │   │   └─ ← [Return] 10
+    │   └─ ← [Return] 10
+    ├─ [0] VM::assertEq(10, 10) [staticcall]
+    │   └─ ← [Return] 
+    ├─ [0] VM::assertEq(99000000000000000000 [9.9e19], 99000000000000000000 [9.9e19]) [staticcall]
+    │   └─ ← [Return] 
+    └─ ← [Stop] 
+
+Suite result: ok. 5 passed; 0 failed; 0 skipped; finished in 1.36ms (1.99ms CPU time)
+
+Ran 2 tests for test/Counter.t.sol:CounterTest
+[PASS] testFuzz_SetNumber(uint256) (runs: 256, μ: 31121, ~: 31277)
+Traces:
+  [31277] CounterTest::testFuzz_SetNumber(416)
+    ├─ [22287] Counter::setNumber(416)
+    │   └─ ← [Stop] 
+    ├─ [281] Counter::number() [staticcall]
+    │   └─ ← [Return] 416
+    ├─ [0] VM::assertEq(416, 416) [staticcall]
+    │   └─ ← [Return] 
+    └─ ← [Stop] 
+
+[PASS] test_Increment() (gas: 31293)
+Traces:
+  [31293] CounterTest::test_Increment()
+    ├─ [22337] Counter::increment()
+    │   └─ ← [Stop] 
+    ├─ [281] Counter::number() [staticcall]
+    │   └─ ← [Return] 1
+    ├─ [0] VM::assertEq(1, 1) [staticcall]
+    │   └─ ← [Return] 
+    └─ ← [Stop] 
+
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 5.09ms (4.98ms CPU time)
+
+Ran 2 test suites in 2.39s (6.45ms CPU time): 7 tests passed, 0 failed, 0 skipped (7 total tests)
